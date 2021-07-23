@@ -1,7 +1,7 @@
 const db = require("../db");
 
 const find = async () => {
-  return db.promise().query("select * from Users");
+  return db.promise().query("select * from users");
 };
 
 const create = async ({ firstname, lastname, city, email, password }) => {
