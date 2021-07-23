@@ -1,20 +1,20 @@
 const db = require("../db");
 
 const find = async () => {
-  return db.promise().query("select * from Users");
+  return db.promise().query("select * from users");
 };
 
-const create = async ({ firstname, lastname, email, password }) => {
+const create = async ({ firstname, lastname, city, email, password }) => {
   return db
     .promise()
     .query(
-      "INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)",
-      [firstname, lastname, email, password]
+      "INSERT INTO Users (firstname, lastname, city, email, password) VALUES (?, ?, ?, ?, ?)",
+      [firstname, lastname, city, email, password]
     );
 };
 
-const findByEmail = async (email) => {
-  return db.promise().query("SELECT * FROM Users WHERE email = ?", [email]);
+const findByCity = async (city) => {
+  return db.promise().query("SELECT * FROM Users WHERE city = ?", [city]);
 };
 
-module.exports = { find, create, findByEmail };
+module.exports = { find, create, findByCity };
